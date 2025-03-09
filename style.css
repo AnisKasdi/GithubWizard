@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f 0%, #2a2a4a 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 40px;
+    transition: background 0.5s ease;
+}
+
+body.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    position: sticky;
+    top: 0;
+    background: rgba(30, 30, 47, 0.8);
+    padding: 15px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    animation: slideIn 0.5s ease;
+}
+
+body.light header {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #7b68ee;
+    animation: spin 2s infinite linear;
+}
+
+h1 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, #7b68ee, #00ddeb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background: #555;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+    background: #7b68ee;
+}
+
+.theme-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(20px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.form-container, .preview-container {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.5s ease;
+    transition: background 0.5s ease;
+}
+
+body.light .form-container, body.light .preview-container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ddd;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.5s ease;
+}
+
+body.light h2 {
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 5px;
+    transition: color 0.5s ease;
+}
+
+body.light label {
+    color: #666;
+}
+
+label i {
+    color: #7b68ee;
+    transition: color 0.3s ease;
+}
+
+body.light label i {
+    color: #ff7e5f;
+}
+
+.options-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.options-group input[type="checkbox"],
+.options-group input[type="radio"] {
+    display: none;
+}
+
+.options-group label {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light .options-group label {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.options-group input[type="checkbox"]:checked + label,
+.options-group input[type="radio"]:checked + label {
+    background: #7b68ee;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+}
+
+.options-group label:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.light .options-group label:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+body.light input[type="text"], body.light input[type="email"], body.light textarea {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+}
+
+body.light input[type="text"]:focus, body.light input[type="email"]:focus, body.light textarea:focus {
+    background: #f0f0f0;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input[type="color"] {
+    padding: 0;
+    height: 40px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+}
+
+#preview {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 200px;
+    color: #ddd;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease-in;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.light #preview {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .form-container, .preview-container {
+        width: 100%;
+    }
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

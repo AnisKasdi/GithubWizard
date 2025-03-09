@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Wizard - Profile & Project Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip/dist/jszip.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-magic"></i>
+            <h1>GitHub Wizard</h1>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+            <input type="checkbox" id="theme" checked>
+        </div>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2><i class="fas fa-user"></i> Profile Generator</h2>
+            <div class="form-group">
+                <label for="github-username"><i class="fab fa-github"></i> GitHub Username</label>
+                <input type="text" id="github-username" placeholder="e.g., johndoe" required>
+            </div>
+            <div class="form-group">
+                <label for="name"><i class="fas fa-id-card"></i> Your Name</label>
+                <input type="text" id="name" placeholder="e.g., John Doe">
+            </div>
+            <div class="form-group">
+                <label for="bio"><i class="fas fa-quote-left"></i> Your Bio</label>
+                <textarea id="bio" placeholder="e.g., Full-stack dev passionate about open source"></textarea>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-briefcase"></i> Status</label>
+                <div class="options-group">
+                    <input type="radio" name="status" id="status-none" value="" checked>
+                    <label for="status-none"><i class="fas fa-minus-circle"></i> None</label>
+                    <input type="radio" name="status" id="status-available" value="available">
+                    <label for="status-available"><i class="fas fa-check-circle"></i> Available for Hire</label>
+                    <input type="radio" name="status" id="status-busy" value="busy">
+                    <label for="status-busy"><i class="fas fa-clock"></i> Currently Busy</label>
+                    <input type="radio" name="status" id="status-learning" value="learning">
+                    <label for="status-learning"><i class="fas fa-book"></i> Learning New Skills</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                <input type="text" id="location" placeholder="e.g., Paris, France">
+            </div>
+            <div class="form-group">
+                <label for="pronouns"><i class="fas fa-user-friends"></i> Pronouns</label>
+                <input type="text" id="pronouns" placeholder="e.g., he/him, she/her, they/them">
+            </div>
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" placeholder="e.g., john@example.com">
+            </div>
+            <div class="form-group">
+                <label for="twitter"><i class="fab fa-twitter"></i> Twitter Handle</label>
+                <input type="text" id="twitter" placeholder="e.g., @johndoe">
+            </div>
+            <div class="form-group">
+                <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn Profile</label>
+                <input type="text" id="linkedin" placeholder="e.g., linkedin.com/in/johndoe">
+            </div>
+            <div class="form-group">
+                <label for="website"><i class="fas fa-globe"></i> Personal Website</label>
+                <input type="text" id="website" placeholder="e.g., https://johndoe.com">
+            </div>
+            <div class="form-group">
+                <label for="skills"><i class="fas fa-tools"></i> Skills (comma-separated)</label>
+                <input type="text" id="skills" placeholder="e.g., Java, Python, JavaScript">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-award"></i> Badges</label>
+                <div class="options-group">
+                    <input type="checkbox" id="badge-java" value="java">
+                    <label for="badge-java"><i class="fab fa-java"></i> Java</label>
+                    <input type="checkbox" id="badge-python" value="python">
+                    <label for="badge-python"><i class="fab fa-python"></i> Python</label>
+                    <input type="checkbox" id="badge-javascript" value="javascript">
+                    <label for="badge-javascript"><i class="fab fa-js"></i> JavaScript</label>
+                    <input type="checkbox" id="badge-react" value="react">
+                    <label for="badge-react"><i class="fab fa-react"></i> React</label>
+                    <input type="checkbox" id="badge-github-stars" value="github-stars">
+                    <label for="badge-github-stars"><i class="fab fa-github"></i> GitHub Stars</label>
+                    <input type="checkbox" id="badge-commits" value="commits">
+                    <label for="badge-commits"><i class="fas fa-code-commit"></i> Commits</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-paint-brush"></i> Stats Theme</label>
+                <div class="options-group">
+                    <input type="radio" name="stats-theme" id="theme-dark" value="dark" checked>
+                    <label for="theme-dark"><i class="fas fa-moon"></i> Dark</label>
+                    <input type="radio" name="stats-theme" id="theme-light" value="light">
+                    <label for="theme-light"><i class="fas fa-sun"></i> Light</label>
+                    <input type="radio" name="stats-theme" id="theme-radical" value="radical">
+                    <label for="theme-radical"><i class="fas fa-fire"></i> Radical</label>
+                    <input type="radio" name="stats-theme" id="theme-merko" value="merko">
+                    <label for="theme-merko"><i class="fas fa-leaf"></i> Merko</label>
+                    <input type="radio" name="stats-theme" id="theme-gruvbox" value="gruvbox">
+                    <label for="theme-gruvbox"><i class="fas fa-box"></i> Gruvbox</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="projects"><i class="fas fa-folder-open"></i> Featured Projects (one per line)</label>
+                <textarea id="projects" placeholder="e.g., MyCoolApp - A cool app"></textarea>
+            </div>
+            <button onclick="generateProfile()"><i class="fas fa-eye"></i> Generate Preview</button>
+            <button onclick="downloadProfile()"><i class="fas fa-download"></i> Download README</button>
+
+            <h2><i class="fas fa-code"></i> Project Generator</h2>
+            <div class="form-group">
+                <label for="project-name"><i class="fas fa-file-code"></i> Project Name</label>
+                <input type="text" id="project-name" placeholder="e.g., MyCoolApp">
+            </div>
+            <div class="form-group">
+                <label for="project-desc"><i class="fas fa-align-left"></i> Description</label>
+                <textarea id="project-desc" placeholder="e.g., A simple app"></textarea>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-laptop-code"></i> Languages</label>
+                <div class="options-group">
+                    <input type="checkbox" id="lang-java" value="java" checked>
+                    <label for="lang-java"><i class="fab fa-java"></i> Java</label>
+                    <input type="checkbox" id="lang-python" value="python">
+                    <label for="lang-python"><i class="fab fa-python"></i> Python</label>
+                    <input type="checkbox" id="lang-javascript" value="javascript">
+                    <label for="lang-javascript"><i class="fab fa-js"></i> JavaScript</label>
+                    <input type="checkbox" id="lang-typescript" value="typescript">
+                    <label for="lang-typescript"><i class="fab fa-js-square"></i> TypeScript</label>
+                    <input type="checkbox" id="lang-cpp" value="cpp">
+                    <label for="lang-cpp"><i class="fas fa-code"></i> C++</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-cogs"></i> Project Type</label>
+                <div class="options-group">
+                    <input type="radio" name="project-type" id="type-cli" value="cli" checked>
+                    <label for="type-cli"><i class="fas fa-terminal"></i> CLI App</label>
+                    <input type="radio" name="project-type" id="type-api" value="api">
+                    <label for="type-api"><i class="fas fa-server"></i> API</label>
+                    <input type="radio" name="project-type" id="type-web" value="web">
+                    <label for="type-web"><i class="fab fa-chrome"></i> Web App</label>
+                    <input type="radio" name="project-type" id="type-game" value="game">
+                    <label for="type-game"><i class="fas fa-gamepad"></i> Game</label>
+                    <input type="radio" name="project-type" id="type-library" value="library">
+                    <label for="type-library"><i class="fas fa-book"></i> Library</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-balance-scale"></i> License</label>
+                <div class="options-group">
+                    <input type="radio" name="license" id="license-none" value="none" checked>
+                    <label for="license-none"><i class="fas fa-times"></i> None</label>
+                    <input type="radio" name="license" id="license-mit" value="mit">
+                    <label for="license-mit"><i class="fas fa-file-alt"></i> MIT</label>
+                    <input type="radio" name="license" id="license-apache" value="apache">
+                    <label for="license-apache"><i class="fas fa-file-contract"></i> Apache 2.0</label>
+                    <input type="radio" name="license" id="license-gpl" value="gpl">
+                    <label for="license-gpl"><i class="fas fa-file-signature"></i> GPL 3.0</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="theme-color"><i class="fas fa-palette"></i> Theme Color</label>
+                <input type="color" id="theme-color" value="#7b68ee">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-plus-circle"></i> Extras</label>
+                <div class="options-group">
+                    <input type="checkbox" id="gitignore" checked>
+                    <label for="gitignore"><i class="fas fa-ban"></i> Add .gitignore</label>
+                    <input type="checkbox" id="tests">
+                    <label for="tests"><i class="fas fa-vial"></i> Add Tests</label>
+                    <input type="checkbox" id="deps">
+                    <label for="deps"><i class="fas fa-boxes"></i> Add Dependencies</label>
+                    <input type="checkbox" id="contributing">
+                    <label for="contributing"><i class="fas fa-hands-helping"></i> Add CONTRIBUTING.md</label>
+                </div>
+            </div>
+            <button onclick="downloadProject()"><i class="fas fa-download"></i> Download Project ZIP</button>
+        </div>
+        <div class="preview-container">
+            <h2><i class="fas fa-desktop"></i> Preview</h2>
+            <div id="preview">
+                <p>Enter your GitHub username and fill out the form to see your real profile preview!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
